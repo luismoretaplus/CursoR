@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Vectores | Curso R Desde Cero: Objetos y estructuras</title>
+  <meta name="description" content="2 Vectores | Curso R Desde Cero: Objetos y estructuras" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Vectores | Curso R Desde Cero: Objetos y estructuras" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Vectores | Curso R Desde Cero: Objetos y estructuras" />
+  
+  
+  
+
+<meta name="author" content="Luis Fernando Moreta, Lucía Patricia Montaluisa" />
+
+
+<meta name="date" content="2022-05-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="objetos.html"/>
+<link rel="next" href="dataframes.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>1</b> Objetos</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="objetos.html"><a href="objetos.html#qué-es-un-objeto-en-r"><i class="fa fa-check"></i><b>1.1</b> ¿Qué es un objeto en R?</a></li>
+<li class="chapter" data-level="1.2" data-path="objetos.html"><a href="objetos.html#tipos-de-elementos"><i class="fa fa-check"></i><b>1.2</b> Tipos de elementos</a></li>
+<li class="chapter" data-level="1.3" data-path="objetos.html"><a href="objetos.html#operaciones-con-objetos"><i class="fa fa-check"></i><b>1.3</b> Operaciones con objetos</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="objetos.html"><a href="objetos.html#ejemplo-práctico"><i class="fa fa-check"></i><b>1.3.1</b> Ejemplo práctico</a></li>
+<li class="chapter" data-level="1.3.2" data-path="objetos.html"><a href="objetos.html#ejercicio-para-ustedes"><i class="fa fa-check"></i><b>1.3.2</b> Ejercicio para ustedes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="objetos.html"><a href="objetos.html#funciones-para-objetos"><i class="fa fa-check"></i><b>1.4</b> Funciones para objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>2</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectores.html"><a href="vectores.html#qué-es-un-vector"><i class="fa fa-check"></i><b>2.1</b> ¿ Qué es un vector?</a></li>
+<li class="chapter" data-level="2.2" data-path="vectores.html"><a href="vectores.html#tipos-de-vectores"><i class="fa fa-check"></i><b>2.2</b> Tipos de vectores</a></li>
+<li class="chapter" data-level="2.3" data-path="vectores.html"><a href="vectores.html#funciones-para-vectores"><i class="fa fa-check"></i><b>2.3</b> Funciones para vectores</a></li>
+<li class="chapter" data-level="2.4" data-path="vectores.html"><a href="vectores.html#operaciones-con-funciones"><i class="fa fa-check"></i><b>2.4</b> Operaciones con funciones</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="vectores.html"><a href="vectores.html#ejercicio-para-ustedes-1"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicio para ustedes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="vectores.html"><a href="vectores.html#indexación-de-vectores"><i class="fa fa-check"></i><b>2.5</b> Indexación de vectores</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="vectores.html"><a href="vectores.html#ejercicio-para-ustedes-2"><i class="fa fa-check"></i><b>2.5.1</b> Ejercicio para ustedes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dataframes.html"><a href="dataframes.html"><i class="fa fa-check"></i><b>3</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dataframes.html"><a href="dataframes.html#qué-son-los-dataframes"><i class="fa fa-check"></i><b>3.1</b> ¿Qué son los Dataframes ?</a></li>
+<li class="chapter" data-level="3.2" data-path="dataframes.html"><a href="dataframes.html#tipos-de-dataframes"><i class="fa fa-check"></i><b>3.2</b> Tipos de dataframes</a></li>
+<li class="chapter" data-level="3.3" data-path="dataframes.html"><a href="dataframes.html#funciones-de-dataframes"><i class="fa fa-check"></i><b>3.3</b> Funciones de dataframes</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="dataframes.html"><a href="dataframes.html#ejercicio-para-ustedes-3"><i class="fa fa-check"></i><b>3.3.1</b> Ejercicio para ustedes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="dataframes.html"><a href="dataframes.html#indexación-de-dataframes"><i class="fa fa-check"></i><b>3.4</b> Indexación de Dataframes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="dataframes.html"><a href="dataframes.html#ejercicio-para-ustedes-4"><i class="fa fa-check"></i><b>3.4.1</b> Ejercicio para ustedes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>4</b> Listas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="listas.html"><a href="listas.html#qué-son-las-listas-y-cómo-se-crea-una"><i class="fa fa-check"></i><b>4.1</b> ¿ Qué son las listas y cómo se crea una ?</a></li>
+<li class="chapter" data-level="4.2" data-path="listas.html"><a href="listas.html#indexación-de-listas"><i class="fa fa-check"></i><b>4.2</b> Indexación de listas</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso R Desde Cero: Objetos y estructuras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectores" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Vectores<a href="vectores.html#vectores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="qué-es-un-vector" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> ¿ Qué es un vector?<a href="vectores.html#qué-es-un-vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Vectores:</strong> Conjunto de elementos de un mismo tipo. Estos elementos se encuentran concatenados.
+<strong>c()</strong></p>
+<p>Hay dos tipos de vectores:</p>
+<ul>
+<li><p>Vectores atómicos, de los cuales hay seis tipos: lógicos, enteros, dobles, de carácter, complejos y brutos. Los vectores enteros(int) y dobles(double) se conocen colectivamente como vectores numéricos.</p></li>
+<li><p>Listas, que a veces se denominan vectores recursivos porque las listas pueden contener otras listas.</p></li>
+</ul>
+</div>
+<div id="tipos-de-vectores" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Tipos de vectores<a href="vectores.html#tipos-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen vectores <strong>Numéricos</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectores.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 5 6 8</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vectores.html#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb25-2"><a href="vectores.html#cb25-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 5 6 8</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="vectores.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Recuerda todos son de un mismo tipo.</p>
+<p>Si se introducen diferentes tipos va a tratar de coercionarlos a un mismo tipo, por lo general converge a tipo <em>string</em></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vectores.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, T, F)</span></code></pre></div>
+<pre><code>## [1] &quot;5&quot;     &quot;6&quot;     &quot;8&quot;     &quot;a&quot;     &quot;b&quot;     &quot;TRUE&quot;  &quot;FALSE&quot;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vectores.html#cb31-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, T, F)</span>
+<span id="cb31-2"><a href="vectores.html#cb31-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;5&quot;     &quot;6&quot;     &quot;8&quot;     &quot;a&quot;     &quot;b&quot;     &quot;TRUE&quot;  &quot;FALSE&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vectores.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Hay otro tipo de vectores que son los lógicos (<em>logical</em>), estos pueden tomar únicamente dos valores <em>TRUE</em> O <em>FALSE</em>, nos ayudan mucho a hacer filtros de los datos y contar los casos que verdaderos y falsos.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vectores.html#cb35-1" aria-hidden="true" tabindex="-1"></a>Vector_Num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb35-2"><a href="vectores.html#cb35-2" aria-hidden="true" tabindex="-1"></a>Vector_logico <span class="ot">&lt;-</span> Vector_Num<span class="sc">&gt;</span><span class="dv">2</span></span>
+<span id="cb35-3"><a href="vectores.html#cb35-3" aria-hidden="true" tabindex="-1"></a>Vector_logico</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="vectores.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Vector_logico)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<ul>
+<li>Factores: Categorías de un conjunto de observaciones ya sea string o numérico, es un tipo especial de vector en donde cada elemento tiene su propia etiqueta.</li>
+</ul>
+<p>Antes de incluir una variable tipo cadena (string) a un análisis estadístico se debe convertir a factor</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vectores.html#cb39-1" aria-hidden="true" tabindex="-1"></a>vector_cadena<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Paga&quot;</span>,<span class="st">&quot;No Paga&quot;</span>,<span class="st">&quot;Paga&quot;</span>,<span class="st">&quot;Paga&quot;</span>,<span class="st">&quot;Paga&quot;</span>,<span class="st">&quot;No Paga&quot;</span>)</span>
+<span id="cb39-2"><a href="vectores.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vector_cadena) </span></code></pre></div>
+<pre><code>##    Length     Class      Mode 
+##         6 character character</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectores.html#cb41-1" aria-hidden="true" tabindex="-1"></a>vector_factor<span class="ot">&lt;-</span><span class="fu">factor</span>(vector_cadena,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Paga&quot;</span>,<span class="st">&quot;No Paga&quot;</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Bueno&quot;</span>,<span class="st">&quot;Malo&quot;</span>))</span>
+<span id="cb41-2"><a href="vectores.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># levels: Categorias incluidas en la variable</span></span>
+<span id="cb41-3"><a href="vectores.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># labels: Etiquetas de cada Categoria</span></span>
+<span id="cb41-4"><a href="vectores.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vector_factor)</span></code></pre></div>
+<pre><code>## Bueno  Malo 
+##     4     2</code></pre>
+</div>
+<div id="funciones-para-vectores" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Funciones para vectores<a href="vectores.html#funciones-para-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen varias funciones que nos sirven para inspeccionar vectores y ver sus atributos, algunas de esas funciones ya hemos utilizado.</p>
+<p>¿ Cómo saber la longitud de un vector, es decir, cuántos elementos contiene ?</p>
+<p><em>length()</em></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="vectores.html#cb43-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb43-2"><a href="vectores.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(genero)</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>¿ Cómo saber de qué clase es un vector ?</p>
+<p><em>class()</em> o <em>typeof()</em></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vectores.html#cb45-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb45-2"><a href="vectores.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(genero)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="vectores.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(genero)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>¿ Contar el número de objetos por cada categoría existe ?</p>
+<p><em>table()</em></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="vectores.html#cb49-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb49-2"><a href="vectores.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(genero)</span></code></pre></div>
+<pre><code>## genero
+## F M 
+## 5 4</code></pre>
+<p>¿ Obtener el porcentaje del total de cada categoría existente ?</p>
+<p><em>prop.table()</em></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="vectores.html#cb51-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb51-2"><a href="vectores.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(genero))</span></code></pre></div>
+<pre><code>## genero
+##         F         M 
+## 0.5555556 0.4444444</code></pre>
+<p>Es importante introducir a la función prop.table el resultado del table, es decir.</p>
+<p><em>prop.table(table(VECTOR))</em></p>
+<p>Existen dos familias de funciones especiales que no solo aplica para vectores.</p>
+<p>La primera familia sirve para preguntar si determinado vector u objeto es de alguna clase en específico.
+Si queremos preguntar si el vector edades es numérico lo haremos con una de las funciones <em>is.</em>, específicamente utilizaremos la función <em>is.numeric</em>.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="vectores.html#cb53-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb53-2"><a href="vectores.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(genero)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Otra familia importante en R pero con la que hay que ir adquiriendo experiencia de cómo hacerlo es la familia <em>as.</em>
+Esto lo que nos permite es cambiar el tipo de objeto, digamos que queremos cambiar un vector que al importarlo nos aparece como caracter pero en realidad es número, entonces lo que haremos es utilizar la función as.numeric</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="vectores.html#cb55-1" aria-hidden="true" tabindex="-1"></a>N_Hijos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;3&quot;</span>,<span class="st">&quot;5&quot;</span>,<span class="st">&quot;Sin Dato&quot;</span>,<span class="st">&quot;0&quot;</span>,<span class="st">&quot;3&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;5&quot;</span>,<span class="st">&quot;0&quot;</span>)</span>
+<span id="cb55-2"><a href="vectores.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(N_Hijos)</span></code></pre></div>
+<pre><code>## Warning: NAs introducidos por coerción</code></pre>
+<pre><code>## [1]  1  3  5 NA  0  3  1  5  0</code></pre>
+<p>RESUMEN</p>
+<p>Comprobación y coerción</p>
+<p>Comprobar el tipo de objeto: <strong>¿Es …?</strong></p>
+<p>coerción a otro tipo: <strong>Convertir de … a …</strong></p>
+<center>
+<img src="coersion.png" style="width:50.0%" />
+</center>
+<p>Atributos de los objetos</p>
+<p>Los atributos brindan información general de la estructura de los objetos. Existen atributos especiales para cada objeto.</p>
+<center>
+<img src="atributos.png" style="width:50.0%" />
+</center>
+</div>
+<div id="operaciones-con-funciones" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Operaciones con funciones<a href="vectores.html#operaciones-con-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para ver las operaciones con vectores primero vamos a hacerlo con vectores de longuitud 1 y luego lo extrapolamos a vectores de mayor longuitud.</p>
+<p><strong>Sumar</strong></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="vectores.html#cb58-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb58-2"><a href="vectores.html#cb58-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb58-3"><a href="vectores.html#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="vectores.html#cb58-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p><strong>Multiplicación</strong></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="vectores.html#cb60-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb60-2"><a href="vectores.html#cb60-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb60-3"><a href="vectores.html#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="vectores.html#cb60-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span>b</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p><strong>Elevar al cuadrado</strong></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="vectores.html#cb62-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb62-2"><a href="vectores.html#cb62-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb62-3"><a href="vectores.html#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="vectores.html#cb62-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">**</span>b</span></code></pre></div>
+<pre><code>## [1] 1024</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="vectores.html#cb64-1" aria-hidden="true" tabindex="-1"></a>a<span class="sc">^</span>b</span></code></pre></div>
+<pre><code>## [1] 1024</code></pre>
+<p>Cuando operamos con vectores de longuitud superior a 1, debemos tomar en cuenta que sean de la misma longuitud, en caso contrario, se repetirá el vector de menor longuitud hasta quedar de la misma longuitud que el más grande, es decir si sumamos <em>a &lt;- c(1,2,3)</em> con <em>b&lt;-c (1,2,3,4)</em>, en realidad lo que hará R es transformar al vector a de la siguiente manera <em>a &lt;- c(1,2,3,1)</em> es decir, repite el primer elemento para sumar 4 elementos con 4 elementos.
+Por lo que es importante verificar muy bien las longuitudes para evitar errores.</p>
+<p>En realidad la suma, resta, multiplicación y potenciación de vectores se lo hace elemento por elemento sin mayor problema, pero ¿ Qué pasa si existen valores perdidos ?
+En este sentido hay una regla fuerte, toda operación con un <em>NA</em> dará como resultado <em>NA</em>.</p>
+<p><strong>Suma con NA</strong></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="vectores.html#cb66-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="cn">NA</span>)</span>
+<span id="cb66-2"><a href="vectores.html#cb66-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>)</span>
+<span id="cb66-3"><a href="vectores.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="vectores.html#cb66-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
+<pre><code>## [1] 11 13 15 NA</code></pre>
+<p>Antes de pasar al siguiente tema, veremos las operaciones con vectores no numéricos, en ese sentido se pueden aplicar operadores de comparación, por lo que el resultado final puede tomar únicamente 3 tipos de resultados <em>TRUE</em>, <em>FALSE</em> o <em>NA</em>, es importante que conozcamos cuáles son estos operadores.</p>
+<center>
+<p><img src="img6_cap2.PNG" /></p>
+<center>
+<p>Qué es lo que buscamos con estos operadores de comparación, simplemente queremos saber si los elementos de un vector son iguales, menores, distintos, etc que un objeto o vector con el que lo comparamos.</p>
+<p>Supongamos que tenemos un vector de edades, y queremos saber las personas que ya cumplieron la mayoría de edad y los que no.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="vectores.html#cb68-1" aria-hidden="true" tabindex="-1"></a>Edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">40</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>)</span>
+<span id="cb68-2"><a href="vectores.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="vectores.html#cb68-3" aria-hidden="true" tabindex="-1"></a>Edades <span class="sc">&gt;</span> <span class="dv">17</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE</code></pre>
+<p>Ahora, supongamos que tenemos las edades de sus parejas, y quiero saber si la edad de esas personas es igual a la edad de sus parejas.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="vectores.html#cb70-1" aria-hidden="true" tabindex="-1"></a>Edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">40</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>)</span>
+<span id="cb70-2"><a href="vectores.html#cb70-2" aria-hidden="true" tabindex="-1"></a>Edades_Pareja <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">41</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">23</span>,<span class="dv">40</span>)</span>
+<span id="cb70-3"><a href="vectores.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="vectores.html#cb70-4" aria-hidden="true" tabindex="-1"></a>Edades <span class="sc">==</span> Edades_Pareja</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE</code></pre>
+<p>De esa forma podemos saber qué objetos cumplen nuestras condiciones, también vamos a poder combinar operaciones de combinación, es decir utilizar operadores como el <em>Y</em>, el operador <em>o</em> o el operador de negación <em>!</em>.</p>
+<p>En ese sentido vamos a utilizar un ejemplo, queremos saber qué personas tienen igual edad que su pareja y a parte son mayores a 18 años.</p>
+<p>Lo que haremos será utilizar el operador lógico <em>and</em> o <em>y</em> que se representa con el símbolo <em>&amp;</em></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="vectores.html#cb72-1" aria-hidden="true" tabindex="-1"></a>Edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">40</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>)</span>
+<span id="cb72-2"><a href="vectores.html#cb72-2" aria-hidden="true" tabindex="-1"></a>Edades_Pareja <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">41</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">23</span>,<span class="dv">40</span>)</span>
+<span id="cb72-3"><a href="vectores.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="vectores.html#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="vectores.html#cb72-5" aria-hidden="true" tabindex="-1"></a>Edades <span class="sc">==</span> Edades_Pareja <span class="sc">&amp;</span> Edades <span class="sc">&gt;=</span> <span class="dv">18</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Aquí todos los operadores</p>
+<center>
+<p><img src="img8_cap2.PNG" /></p>
+<center>
+<div id="ejercicio-para-ustedes-1" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Ejercicio para ustedes<a href="vectores.html#ejercicio-para-ustedes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quisiera saber cuántas personas tienen una edad menor a la de su pareja <strong>o</strong> tienen más de 30 años.
+El operador <em>o</em> es | que lo encontramos generalmente a la izquierda del número 1.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="vectores.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Tu turno de programar&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="indexación-de-vectores" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Indexación de vectores<a href="vectores.html#indexación-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este tema es de vital importancia entenderlo, sobretodo cuando vamos a manipular datos, la indexación se refiere saber llegar al objeto u objetos que deseamos, ya sea para borrarlo, cambiarlo, suprimirlo, etc.</p>
+<p>La indexación de vectores es bastante sencillo y podemos hacerlo principalmente de dos maneras con sus respectivas variantes. La manera más sencilla es simplemente utilizando corchetes <em>[]</em> y dentro de los corchetes escribir el número que corresponda a la posición del objeto u objetos.</p>
+<p>En ese sentido si queremos acceder al primer elemento vamos a escribir el siguiente código.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="vectores.html#cb75-1" aria-hidden="true" tabindex="-1"></a>Edades </span></code></pre></div>
+<pre><code>## [1] 19 20 23 40 16 17 18 19</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="vectores.html#cb77-1" aria-hidden="true" tabindex="-1"></a>Edades[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 19</code></pre>
+<p>Si queremos los 5 primeros podemos ayudarnos de una configuración en R que son los dos puntos <em>:</em>, genera un vector de números consecutivos de saltos 1 en 1.</p>
+<p>Ejemplos</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="vectores.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="vectores.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">:-</span><span class="dv">4</span></span></code></pre></div>
+<pre><code>##  [1]  7  6  5  4  3  2  1  0 -1 -2 -3 -4</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="vectores.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5</code></pre>
+<p>Por tanto para nuestro ejercicio queda de la siguiente forma</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vectores.html#cb85-1" aria-hidden="true" tabindex="-1"></a>Edades[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 19 20 23 40 16</code></pre>
+<p>Si queremos hacerlo con posiciones variadas y no secuenciales podemos hacerlo con un vector escrito a mano.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="vectores.html#cb87-1" aria-hidden="true" tabindex="-1"></a>Edades[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">7</span>)]</span></code></pre></div>
+<pre><code>## [1] 19 20 16 18</code></pre>
+<p>Ahora, veremos otra forma de indexar vectores y esto va muy de la mano con los vectores lógicos que vimos anteriormente.</p>
+<p>R al ingresar un vector lógico va a mostrar únicamente los valores TRUE y no mostrar los FALSE, es decir, podemos generar un vector lógico a través de operadores de comparación y con eso acceder a los datos que cumplen dichas comparaciones.</p>
+<p>Supongamos que tenemos nuestro vector de edades, queremos acceder a los elementos que sean menores de edad.
+generamos un vector lógico y a este vector lo colocamos dentro de los corchetes.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="vectores.html#cb89-1" aria-hidden="true" tabindex="-1"></a>Edades</span></code></pre></div>
+<pre><code>## [1] 19 20 23 40 16 17 18 19</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="vectores.html#cb91-1" aria-hidden="true" tabindex="-1"></a>vec_logico <span class="ot">&lt;-</span> Edades <span class="sc">&gt;</span> <span class="dv">17</span></span>
+<span id="cb91-2"><a href="vectores.html#cb91-2" aria-hidden="true" tabindex="-1"></a>Edades[vec_logico]</span></code></pre></div>
+<pre><code>## [1] 19 20 23 40 18 19</code></pre>
+<p>Podríamos utilizar los operadores lógicos para poner más de una condición, por ejemplo queremos saber cuántas personas no tienen 19 años y cuántas de esas personas tienen menor edad que su pareja.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vectores.html#cb93-1" aria-hidden="true" tabindex="-1"></a>Edades</span></code></pre></div>
+<pre><code>## [1] 19 20 23 40 16 17 18 19</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="vectores.html#cb95-1" aria-hidden="true" tabindex="-1"></a>Edades_Pareja</span></code></pre></div>
+<pre><code>## [1] 18 21 23 41 16 17 23 40</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="vectores.html#cb97-1" aria-hidden="true" tabindex="-1"></a>vec_logico <span class="ot">&lt;-</span> Edades <span class="sc">!=</span><span class="dv">19</span> <span class="sc">&amp;</span> Edades <span class="sc">&lt;</span>  Edades_Pareja</span>
+<span id="cb97-2"><a href="vectores.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="vectores.html#cb97-3" aria-hidden="true" tabindex="-1"></a>Edades[vec_logico]</span></code></pre></div>
+<pre><code>## [1] 20 40 18</code></pre>
+<div id="ejercicio-para-ustedes-2" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Ejercicio para ustedes<a href="vectores.html#ejercicio-para-ustedes-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quisiera que me muestren 3 formas diferentes de acceder al primer elemento del vector Edades</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="vectores.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Tu turno de programar&quot;</span></span></code></pre></div>
+<p><strong>Manipulación de los elementos del vector</strong></p>
+<p>Es importante, una vez que accedemos a los objetos podamos manipularlos, esto lo logramos simplemente con el operador de asignación que como recodaremos es <strong>&lt;-</strong>, por lo que supongamos que nos indica que en realidad no existen menores de edad en nuestro vector y que en realidad todos los que estaban registrados con esa edad tienen ya 18, en ese caso deseamos primero acceder a los datos y luego asignarles 18.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="vectores.html#cb100-1" aria-hidden="true" tabindex="-1"></a>Edades[Edades<span class="sc">&lt;</span><span class="dv">18</span>]</span>
+<span id="cb100-2"><a href="vectores.html#cb100-2" aria-hidden="true" tabindex="-1"></a>Edades[Edades<span class="sc">&lt;</span><span class="dv">18</span>] <span class="ot">&lt;-</span> <span class="dv">18</span></span>
+<span id="cb100-3"><a href="vectores.html#cb100-3" aria-hidden="true" tabindex="-1"></a>Edades</span></code></pre></div>
+<p>Ten en cuenta que una vez asignamos la correción no podemos revetir esa transformación, la única opción en este caso es generar nuevamente el vector que lo hicimos varias líneas de código arriba.</p>
+<p>También podemos hacer los remplazos con otros elementos, por ejemplo con otro vector o con los valores de NA o un nuevo vector más pequeño.</p>
+<p>Queremos ahorra borrar el espacio de las personas mayores a 30 años y colocar NA al primer elemento del vector, haremos lo siguiente.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="vectores.html#cb101-1" aria-hidden="true" tabindex="-1"></a>Edades[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb101-2"><a href="vectores.html#cb101-2" aria-hidden="true" tabindex="-1"></a>Edades <span class="ot">&lt;-</span> Edades[<span class="sc">!</span>Edades<span class="sc">&gt;</span><span class="dv">30</span>]</span>
+<span id="cb101-3"><a href="vectores.html#cb101-3" aria-hidden="true" tabindex="-1"></a>Edades_respaldo <span class="ot">&lt;-</span> Edades[<span class="sc">!</span>Edades<span class="sc">==</span><span class="dv">18</span>]</span>
+<span id="cb101-4"><a href="vectores.html#cb101-4" aria-hidden="true" tabindex="-1"></a>Edades</span></code></pre></div>
+<pre><code>## [1] NA 20 23 16 17 18 19</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="vectores.html#cb103-1" aria-hidden="true" tabindex="-1"></a>Edades_respaldo</span></code></pre></div>
+<pre><code>## [1] NA 20 23 16 17 19</code></pre>
+<p>Es importante observar como se asignó al vector Edades un nuevo Edades pero más reducido, es importante notar que Edades ya no va a poder volver a lo que era antes de manera simple como un ctrl+z, es importante analizar la necesidad de sobreescribir los vectores o guardarlos en otro elemento.</p>
+<p>Listos, dominamos las cosas fundamentales de vectores.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="objetos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataframes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
